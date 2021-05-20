@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <div [formGroup]="myFormGroup">
+        <label>Icon</label>
+        <div class="input-group">
+          <span class="input-group-addon" *ngIf="isFontawesome"><i [ngClass]="iconCssMat.value"></i></span>
+          <span class="input-group-addon" *ngIf="!isFontawesome">
+            <i class="material-icons" style="font-size: 18px">{{iconCssMat.value}}</i>
+          </span>
+          <input type="text" name="iconCssMat" class="form-control" formControlName="iconCssMat"
+                 [iconPicker]="iconCssMat.value" [ipPosition]="'bottom'" [ipIconPack]="['mat', 'fa5']"
+                 [ipWidth]="'250px'" [ipPlaceHolder]="'Choose an icon'" [ipFallbackIcon]="fallbackIconMat"
+                 (iconPickerSelect)="onIconPickerMatSelect($event)"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <button mat-raised-button color="primary" formControlName="iconCssMat" style="margin-top: 20px"
+          [iconPicker]="iconCssMat.value" [ipPosition]="'bottom'" [ipIconPack]="['mat', 'fa5']"
+          [ipWidth]="'250px'" [ipPlaceHolder]="'Choose an icon'" [ipFallbackIcon]="fallbackIconMat"
+          (iconPickerSelect)="onIconPickerMatSelect($event)">
+    <span *ngIf="isFontawesome"><i [ngClass]="iconCssMat.value"></i></span>
+    <span *ngIf="!isFontawesome" style="line-height: normal"><i class="material-icons" style="font-size: 18px">{{iconCssMat.value}}</i>
+          </span> {{iconCssMat.value}}
+  </button>
+</div>
+
+
