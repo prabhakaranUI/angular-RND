@@ -9,14 +9,14 @@ export class ColorShadesComponent implements OnInit {
 shadesArray: any = [];
 
   constructor() {
-    this.hexToRgb('#FF0000','#008000', 100);
+
   }
 
   ngOnInit(): void {
-
+      this.hexToRgb('#FF0000','#008000', 100);
   }
 
-  hexToRgb(hexOne, hexTwo, count): void {
+  hexToRgb(hexOne: string, hexTwo: string, count: number): void {
     const colorOne = [ parseInt(hexOne.slice(1, 3), 16), parseInt(hexOne.slice(3, 5), 16), parseInt(hexOne.slice(5, 7), 16)];
     const colorTwo = [ parseInt(hexTwo.slice(1, 3), 16), parseInt(hexTwo.slice(3, 5), 16), parseInt(hexTwo.slice(5, 7), 16)];
     this.shadesArray = this.interpolateColors(
