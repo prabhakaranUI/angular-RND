@@ -28,27 +28,27 @@ shadesArray: any = [];
 
 // My function to interpolate between two colors completely, returning an array
   interpolateColors(color1, color2, steps): void {
-    let stepFactor = 1 / (steps - 1);
+        const stepFactor = 1 / (steps - 1);
         const interpolatedColorArray: any = [];
 
-    color1 = color1.match(/\d+/g).map(Number);
-    color2 = color2.match(/\d+/g).map(Number);
+        color1 = color1.match(/\d+/g).map(Number);
+        color2 = color2.match(/\d+/g).map(Number);
 
-    for (let i = 0; i < steps; i++) {
-      interpolatedColorArray.push(this.interpolateColor(color1, color2, stepFactor * i));
-    }
+        for (let i = 0; i < steps; i++) {
+          interpolatedColorArray.push(this.interpolateColor(color1, color2, stepFactor * i));
+        }
 
-    return interpolatedColorArray;
+        return interpolatedColorArray;
   }
 
   interpolateColor(color1, color2, factor): void {
-    if (arguments.length < 3) {
-      factor = 0.5;
-    }
-    let result = color1.slice();
-    for (let i = 0; i < 3; i++) {
-      result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
-    }
-    return result;
+       if (arguments.length < 3) {
+         factor = 0.5;
+       }
+       const result = color1.slice();
+       for (let i = 0; i < 3; i++) {
+        result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
+       }
+       return result;
   }
 }
