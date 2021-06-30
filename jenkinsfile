@@ -15,7 +15,7 @@ pipeline {
         stage('Build') {
           steps {
            sh '''npm run-script build
-           sudo chmod -R 400 uthkalsoftware.pem
+           sshpass -p "linux" sudo chmod -R 400 uthkalsoftware.pem
            ssh -i uthkalsoftware.pem ubuntu@ec2-52-66-24-23.ap-south-1.compute.amazonaws.com'''
           }
         }
