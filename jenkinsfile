@@ -17,11 +17,5 @@ pipeline {
            sh '''npm run-script build
            sudo chmod -R 400 uthkalsoftware.pem'''
           }
-        }
-        stage('deploy') {
-        steps {
-           sh "sudo chmod -R 400 uthkalsoftware.pem"
-           }
-        }
   }
 }
