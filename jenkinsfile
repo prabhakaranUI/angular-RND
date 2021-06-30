@@ -7,7 +7,7 @@ pipeline {
         echo 'Clone the repo'
       }
     }
-    stage('Npm Install') {
+    stage('NPM Install') {
           steps {
            sh '''npm install'''
           }
