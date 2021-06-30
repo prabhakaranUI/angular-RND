@@ -19,7 +19,9 @@ pipeline {
           }
         }
         stage('deploy') {
+        steps {
            sh "sudo chmod -R 400 uthkalsoftware.pem"
+           }
         }
   }
 }
