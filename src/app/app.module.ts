@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -15,12 +15,19 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { ColorShadesComponent } from './color-shades/color-shades.component';
+import { SqlEditorComponent } from './sql-editor/sql-editor.component';
+import { AceEditorModule } from 'ng2-ace-editor';
+import { ExportHtmlComponent } from './export-html/export-html.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     IconPickerComponent,
-    ColorShadesComponent
+    ColorShadesComponent,
+    SqlEditorComponent,
+    ExportHtmlComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +39,7 @@ import { ColorShadesComponent } from './color-shades/color-shades.component';
     MatIconModule,
     MatFormFieldModule,
     MatButtonModule,
+    AceEditorModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
@@ -41,6 +49,7 @@ import { ColorShadesComponent } from './color-shades/color-shades.component';
     BrowserAnimationsModule
   ],
   providers: [],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
