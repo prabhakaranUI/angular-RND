@@ -7,10 +7,14 @@ pipeline {
         echo 'Clone the repo'
       }
     }
-    stage('Build') {
+    stage('NPM Install') {
           steps {
            sh '''npm install'''
           }
         }
+        stage('Build') {
+          steps {
+           sh '''npm run-script build'''
+          }
   }
 }
