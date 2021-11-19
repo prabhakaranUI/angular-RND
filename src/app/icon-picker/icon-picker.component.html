@@ -1,30 +1,83 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-5">
-      <div [formGroup]="myFormGroup">
-        <label>Icon</label>
-        <div class="input-group">
-          <span class="input-group-addon" *ngIf="isFontawesome"><i [ngClass]="iconCssMat.value"></i></span>
-          <span class="input-group-addon" *ngIf="!isFontawesome">
-            <i class="material-icons" style="font-size: 18px">{{iconCssMat.value}}</i>
-          </span>
-          <input type="text" name="iconCssMat" class="form-control" formControlName="iconCssMat"
-                 [iconPicker]="iconCssMat.value" [ipPosition]="'bottom'" [ipIconPack]="['mat', 'fa5']"
-                 [ipWidth]="'250px'" [ipPlaceHolder]="'Choose an icon'" [ipFallbackIcon]="fallbackIconMat"
-                 (iconPickerSelect)="onIconPickerMatSelect($event)"
-          />
-        </div>
-      </div>
+    <div class="col-md-5" style="margin-top: 20px">
+<!--      <form class="mt-5 iconPicker">-->
+<!--        <mat-form-field class="w-100" style="width: 250px">-->
+<!--          <mat-label>Icon Picker</mat-label>-->
+<!--          <input type="text"-->
+<!--                 placeholder="Pick one"-->
+<!--                 aria-label="Icon"-->
+<!--                 matInput-->
+<!--                 [formControl]="myControl"-->
+<!--                 [matAutocomplete]="auto">-->
+<!--          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">-->
+<!--            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.id">-->
+<!--              <mat-icon> {{option.id}}</mat-icon>-->
+<!--            </mat-option>-->
+<!--          </mat-autocomplete>-->
+<!--        </mat-form-field>-->
+<!--      </form>-->
+      <mat-form-field>
+        <mat-select [formControl]="iconCtrl" placeholder="Icon" #singleSelect>
+            <mat-select-trigger fxLayout="row" fxLayoutAlign="space-between center ">
+                {{iconCtrl.value.name}}
+                <mat-icon color="primary">{{iconCtrl.value.name}}</mat-icon>
+            </mat-select-trigger>
+          <mat-option>
+            <ngx-mat-select-search [formControl]="iconFilterCtrl" placeholderLabel="Search Icon" noEntriesFoundLabel="'No matching found'">
+            </ngx-mat-select-search>
+          </mat-option>
+          <mat-option *ngFor="let icon of filteredIcon | async" [value]="icon">
+              <mat-icon matTooltip="{{icon.name}}" color="primary">{{icon.name}}</mat-icon>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+<!--        <ng-select [items]="filteredBanks | async"-->
+<!--                   bindLabel="name"-->
+<!--                   autofocus-->
+<!--                   bindValue="id">-->
+<!--            <ng-option value="batman">-->
+<!--                <mat-icon>close</mat-icon>-->
+<!--                Batman-->
+<!--            </ng-option>-->
+<!--        </ng-select>-->
+<!--      <div [formGroup]="myFormGroup">-->
+<!--        <mat-form-field >-->
+<!--          <mat-label>Input</mat-label>-->
+<!--          <input matInput formControlName="iconCssMat"  [iconPicker]="iconCssMat.value" [ipPosition]="'bottom'" [ipIconPack]="['mat']"-->
+<!--                 [ipWidth]="'250px'" [ipPlaceHolder]="'Choose an icon'" [ipFallbackIcon]="fallbackIconMat"-->
+<!--                 (iconPickerSelect)="onIconPickerMatSelect($event)">-->
+<!--          <mat-icon matSuffix>{{iconCssMat.value}}</mat-icon>-->
+<!--        </mat-form-field>-->
+<!--      </div>-->
+<!--      <div [formGroup]="myFormGroup">-->
+<!--        <label>Icon</label>-->
+<!--        <div class="input-group">-->
+<!--          <span class="input-group-addon" *ngIf="isFontawesome"><i [ngClass]="iconCssMat.value"></i></span>-->
+<!--          <span class="input-group-addon" *ngIf="!isFontawesome">-->
+<!--            <i class="material-icons" style="font-size: 18px">{{iconCssMat.value}}</i>-->
+<!--          </span>-->
+<!--          <input type="text" name="iconCssMat" class="form-control" formControlName="iconCssMat"-->
+<!--                 [iconPicker]="iconCssMat.value" [ipPosition]="'bottom'" [ipIconPack]="['mat', 'fa5']"-->
+<!--                 [ipWidth]="'250px'" [ipPlaceHolder]="'Choose an icon'" [ipFallbackIcon]="fallbackIconMat"-->
+<!--                 (iconPickerSelect)="onIconPickerMatSelect($event)"-->
+<!--          />-->
+<!--        </div>-->
+<!--      </div>-->
     </div>
   </div>
-  <button mat-raised-button color="primary" formControlName="iconCssMat" style="margin-top: 20px"
-          [iconPicker]="iconCssMat.value" [ipPosition]="'bottom'" [ipIconPack]="['mat', 'fa5']"
-          [ipWidth]="'250px'" [ipPlaceHolder]="'Choose an icon'" [ipFallbackIcon]="fallbackIconMat"
-          (iconPickerSelect)="onIconPickerMatSelect($event)">
-    <span *ngIf="isFontawesome"><i [ngClass]="iconCssMat.value"></i></span>
-    <span *ngIf="!isFontawesome" style="line-height: normal"><i class="material-icons" style="font-size: 18px">{{iconCssMat.value}}</i>
-          </span> {{iconCssMat.value}}
-  </button>
+<!--  <button mat-raised-button color="primary" formControlName="iconCssMat" style="margin-top: 20px"-->
+<!--          [iconPicker]="iconCssMat.value" [ipPosition]="'bottom'" [ipIconPack]="['mat']"-->
+<!--          [ipWidth]="'250px'" [ipPlaceHolder]="'Choose an icon'" [ipFallbackIcon]="fallbackIconMat"-->
+<!--          (iconPickerSelect)="onIconPickerMatSelect($event)" class="mb-5">-->
+<!--    <span *ngIf="isFontawesome"><i [ngClass]="iconCssMat.value"></i></span>-->
+<!--    <span *ngIf="!isFontawesome" style="line-height: normal"><i class="material-icons" style="font-size: 18px">{{iconCssMat.value}}</i>-->
+<!--          </span> {{iconCssMat.value}}-->
+<!--  </button>-->
+
+
 </div>
+
 
 

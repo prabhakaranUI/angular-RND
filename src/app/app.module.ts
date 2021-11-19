@@ -18,7 +18,19 @@ import { ColorShadesComponent } from './color-shades/color-shades.component';
 import { SqlEditorComponent } from './sql-editor/sql-editor.component';
 import { AceEditorModule } from 'ng2-ace-editor';
 import { ExportHtmlComponent } from './export-html/export-html.component';
-
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import {MatSelectModule} from '@angular/material/select';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgrxComponent } from './ngrx/ngrx.component';
+import { CounterComponent } from './ngrx/counter/counter.component';
+import { StoreModule } from '@ngrx/store';
+import {counterReducer} from './ngrx/reducer';
+import { MxGraphComponent } from './mx-graph/mx-graph.component';
+import { VizComponent } from './viz/viz.component';
+import { SuburstComponent } from './suburst/suburst.component';
+import { CodemirrorComponent } from './codemirror/codemirror.component';
+import {WindowRef} from './codemirror/WindowRef';
 
 
 @NgModule({
@@ -27,11 +39,18 @@ import { ExportHtmlComponent } from './export-html/export-html.component';
     IconPickerComponent,
     ColorShadesComponent,
     SqlEditorComponent,
-    ExportHtmlComponent
+    ExportHtmlComponent,
+    NgrxComponent,
+    CounterComponent,
+    MxGraphComponent,
+    VizComponent,
+    SuburstComponent,
+    CodemirrorComponent
   ],
   imports: [
     BrowserModule,
     FlexLayoutModule,
+    StoreModule.forRoot({ count: counterReducer }),
     IconPickerModule,
     NgxIconPickrModule,
     ReactiveFormsModule,
@@ -40,6 +59,10 @@ import { ExportHtmlComponent } from './export-html/export-html.component';
     MatFormFieldModule,
     MatButtonModule,
     AceEditorModule,
+    NgxMatSelectSearchModule,
+    MatAutocompleteModule,
+    NgSelectModule,
+    MatSelectModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
@@ -48,7 +71,7 @@ import { ExportHtmlComponent } from './export-html/export-html.component';
     }),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [WindowRef],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })

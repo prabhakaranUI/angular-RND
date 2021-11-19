@@ -1,0 +1,33 @@
+[
+
+    {
+  
+      "context": "System",
+  
+      "category": "Processing",
+  
+      "eventType": "Jobs",
+  
+      "action": "Status",
+  
+      "auditMessage": "Execution of Job 'AUDIT - 1628489149613' scheduled by UNKNOWN (UNKNOWN) started",
+  
+      "auditTime": "2021-08-09 11:36:04",
+  
+    },
+  
+    {
+  
+      "context": "System",
+  
+      "category": "Management",
+  
+      "eventType": "Audit",
+  
+      "action": "Export",
+  
+      "auditMessage": "User superadmin (superadmin@p360.com) exported the audit events for date range 2021-07-10 - 2021-08-09 as csv",
+  
+      "auditTime": "2021-08-09 11:35:54"
+  
+    }]

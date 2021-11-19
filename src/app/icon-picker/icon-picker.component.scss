@@ -1,2 +1,25 @@
 @import 'node_modules/ngx-icon-pickr/pickr';
 
+::ng-deep {
+  .mat-select-panel{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .mat-option .mat-icon{
+    margin-right: 0 !important;
+  }
+  .mat-select-search-inner{
+    margin-left: -19px;
+  }
+
+ .mat-option {
+    border: 1px solid #1565c0;
+    margin: 3px;
+  }
+  .contains-mat-select-search, .contains-mat-select-search + mat-option{
+    border: none !important;
+  }
+}
