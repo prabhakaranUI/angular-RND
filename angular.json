@@ -48,7 +48,9 @@
               "./node_modules/codemirror/lib/codemirror.css",
               "./node_modules/codemirror/addon/hint/show-hint.css",
               "./node_modules/codemirror/addon/dialog/dialog.css",
-              "./node_modules/codemirror/theme/monokai.css"
+              "./node_modules/codemirror/theme/monokai.css",
+              "./node_modules/jquery-ui-dist/jquery-ui.css",
+              "./node_modules/pivottable/dist/pivot.min.css"
             ],
             "scripts": [
               "node_modules/leader-line/leader-line.min.js",
@@ -63,7 +65,13 @@
               "./node_modules/ace-builds/src-min/ext-beautify.js",
               "./node_modules/ace-builds/src-min/ext-language_tools.js",
               "./node_modules/ace-builds/src-min/ext-searchbox.js",
-              "src/assets/js/myScript.js"
+              "src/assets/js/myScript.js",
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/jquery-ui-dist/jquery-ui.js",
+              "./node_modules/pivottable/dist/pivot.min.js",
+              "./node_modules/pivottable/dist/gchart_renderers.min.js",
+              "./node_modules/pivottable/dist/c3_renderers.min.js",
+              "./node_modules/pivottable/dist/d3_renderers.min.js"
             ]
           },
           "configurations": {

@@ -1,0 +1,23 @@
+
+<h1 mat-dialog-title>Add Users</h1>
+<div mat-dialog-content>
+    <form [formGroup]="userForm" fxLayout="column">
+        <mat-form-field appearance="outline" fxFlex="100">
+            <mat-label>First name</mat-label>
+            <input matInput formControlName="firstName" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="100">
+            <mat-label>Last name</mat-label>
+            <input matInput formControlName="lastName" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline" fxFlex="100">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address" required>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button mat-button mat-dialog-close >Close</button>
+    <button mat-raised-button color="primary" [disabled]="userForm.invalid"
+            [mat-dialog-close]="userForm.getRawValue()" cdkFocusInitial >Submit</button>
+</div>

@@ -1,6 +1,8 @@
 import {Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 // import * as sqlAutocompleteParser from '../../../node_modules/gethue/parse/sql/hive/hiveAutocompleteParser';
 import {saveAs} from 'file-saver';
+import { format } from 'sql-formatter';
+
 
 
 
@@ -10,6 +12,8 @@ import {saveAs} from 'file-saver';
     styleUrls: ['./sql-editor.component.scss']
 })
 export class SqlEditorComponent implements OnInit, AfterViewInit {
+    editorOptions = {theme: 'vs-dark', language: 'javascript'};
+    code: string= 'function x() {\nconsole.log("Hello world!");\n}';
     @ViewChild('testInput', {static: false}) testInput: ElementRef;
     @ViewChild('editor', {static: false}) editor;
     public text: any;
@@ -42,22 +46,26 @@ export class SqlEditorComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        this.editor.getEditor().setOptions({
-            showLineNumbers: true,
-            tabSize: 2
-        });
-
-        this.editor.mode = 'javascript';
-        this.editor.value = `function testThis() {
-  console.log("it's working!")
-}`;
+//         this.editor.getEditor().setOptions({
+//             showLineNumbers: true,
+//             tabSize: 2
+//         });
+//
+//         this.editor.mode = 'javascript';
+//         this.editor.value = `function testThis() {
+//   console.log("it's working!")
+// }`;
     }
 
     ngOnInit(): void {
+    }
+
+    formatCode(): void {
 
     }
 
     onChange(code): void {
+        this.text = format(this.text);
         console.log('new code', code);
     }
 

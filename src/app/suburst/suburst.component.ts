@@ -1,12 +1,7 @@
 import {Component, OnInit, ViewChild, ElementRef, AfterViewInit} from '@angular/core';
 import * as d3 from 'd3';
-import * as d3Scale from 'd3';
-import * as d3Shape from 'd3';
-import * as d3Array from 'd3';
-import * as d3Axis from 'd3';
 import * as layout from 'd3';
-import Sunburst from 'sunburst-chart';
-import {logger} from 'codelyzer/util/logger';
+
 
 @Component({
     selector: 'app-suburst',
@@ -20,15 +15,9 @@ export class SuburstComponent implements OnInit, AfterViewInit {
     private x;
     private y;
     private name;
-
-    private node;
-    private root;
-
-    private color;
     private maxDepth;
     private topDepth;
     private treemap;
-    private chart;
     private parent;
     private format;
     svg;
