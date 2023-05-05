@@ -1,0 +1,110 @@
+<div fxLayout="row" fxLayoutGap="15px" style="padding: 20px; background: darkgray;">
+   <mat-card fxFlex="20">
+      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="example-tree">
+         <!-- This is the tree node template for leaf nodes -->
+         <!-- There is inline padding applied to this node using styles.
+           This padding value depends on the mat-icon-button width. -->
+         <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+            <button mat-icon-button matTreeNodeToggle>
+            <mat-icon class="mat-icon-rtl-mirror" color="primary">
+               grid_on
+            </mat-icon>
+            </button>
+            {{node.name}}
+         </mat-tree-node>
+         <!-- This is the tree node template for expandable nodes -->
+         <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+            <div class="mat-tree-node">
+               <button mat-icon-button matTreeNodeToggle
+                       [attr.aria-label]="'Toggle ' + node.name">
+                  <mat-icon class="mat-icon-rtl-mirror">
+                     {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+                  </mat-icon>
+               </button>
+               {{node.name}}
+            </div>
+            <!-- There is inline padding applied to this div using styles.
+                This padding value depends on the mat-icon-button width.  -->
+            <div [class.example-tree-invisible]="!treeControl.isExpanded(node)"
+                 role="group">
+               <ng-container matTreeNodeOutlet></ng-container>
+            </div>
+         </mat-nested-tree-node>
+      </mat-tree>
+   </mat-card>
+   <mat-card fxFlex="80" style="height: 95vh; position: unset !important;" class="example-boundary">
+      <ngx-domarrow from="#element-1" to="#element-2" [tail]="true" [onlyVisible]="true"
+                    color="red" text="Hello world"></ngx-domarrow>
+      <ngx-domarrow from="#element-1" to="#element-3" [tail]="true" [onlyVisible]="true"
+                    color="red" text="Hello world"></ngx-domarrow>
+      <mat-selection-list id="element-1" cdkDragBoundary=".example-boundary" cdkDrag [contextMenu]="basicMenu" [contextMenuSubject]="items">
+         <mat-list-option *ngFor="let shoe of typesOfShoes">
+            {{shoe}}
+         </mat-list-option>
+      </mat-selection-list>
+<!--      <svg width="1297" height="350"><path fill="none" stroke="#2191c0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M 323 140.5 L 331 140.5 C 440 140.5 440 162.5 549 162.5 L 557 162.5"></path><path fill="none" stroke="transparent" stroke-width="5" d="M 323 140.5 L 331 140.5 C 440 140.5 440 162.5 549 162.5 L 557 162.5" class=""></path><circle fill="white" stroke="#2191c0" stroke-width="1" cx="440" cy="151.5" r="8"></circle><path stroke-width="0" d="M440 159.5 C 430 159.5, 430 143.5, 440 143.5 z" fill="transparent"></path><path stroke-width="0" d="M440 159.5 C 450 159.5, 450 143.5, 440 143.5 z" fill="transparent"></path><text fill="#2191c0" font-size="14px" text-anchor="middle" font-family="Arial" x="332" y="128.5"></text><text fill="#2191c0" font-size="14px" text-anchor="middle" font-family="Arial" x="548" y="150.5"></text></svg>-->
+
+      <mat-selection-list id="element-2" cdkDragBoundary=".example-boundary" cdkDrag [contextMenu]="basicMenu" [contextMenuSubject]="items">
+         <mat-list-option *ngFor="let shoe of typesOfShoes">
+            {{shoe}}
+         </mat-list-option>
+      </mat-selection-list>
+      <mat-selection-list id="element-3" cdkDragBoundary=".example-boundary" cdkDrag [contextMenu]="basicMenu" [contextMenuSubject]="items">
+         <mat-list-option *ngFor="let shoe of typesOfShoes">
+            {{shoe}}
+         </mat-list-option>
+      </mat-selection-list>
+      <div *ngIf="contextmenu==true">
+         <app-contextmenu [x]="contextmenuX" [y]="contextmenuY"></app-contextmenu>
+      </div>
+   </mat-card>
+</div>
+<context-menu>
+   <ng-template contextMenuItem>
+      <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+   <mat-icon color="primary">
+settings
+   </mat-icon> <span>Option One</span>
+      </span>
+   </ng-template>
+   <ng-template contextMenuItem>
+     <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+   <mat-icon color="primary">
+sort
+   </mat-icon> <span>Option Two</span>
+      </span>
+   </ng-template>
+   <ng-template contextMenuItem>
+     <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+   <mat-icon color="primary">
+sort_by_alpha
+   </mat-icon> <span>Option Three</span>
+      </span>
+   </ng-template>
+   <ng-template contextMenuItem>
+      <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+   <mat-icon color="primary">
+filter_alt
+   </mat-icon> <span>Option Four</span>
+      </span>
+   </ng-template>
+   <ng-template contextMenuItem>
+    <span fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
+   <mat-icon color="primary">
+check_box
+   </mat-icon> <span>Option Five</span>
+      </span>
+   </ng-template>
+<!--   [subMenu]="saySubMenu"
+ <context-menu #saySubMenu>-->
+<!--      <ng-template contextMenuItem (execute)="showMessage('Hi, ' + $event.item.name)">-->
+<!--         ...hi!-->
+<!--      </ng-template>-->
+<!--      <ng-template contextMenuItem (execute)="showMessage('Hola, ' + $event.item.name)">-->
+<!--         ...hola!-->
+<!--      </ng-template>-->
+<!--      <ng-template contextMenuItem (execute)="showMessage('Salut, ' + $event.item.name)">-->
+<!--         ...salut!-->
+<!--      </ng-template>-->
+<!--   </context-menu>-->
+</context-menu>

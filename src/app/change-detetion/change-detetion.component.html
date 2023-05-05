@@ -1,0 +1,5 @@
+<!--<p>change-detetion works!</p>-->
+<!--<app-parent></app-parent>-->
+<input type="file" (change)="showPreviewImage($event)">
+<img [src]="localUrl" *ngIf="localUrl" class="imgPlaceholder">
+

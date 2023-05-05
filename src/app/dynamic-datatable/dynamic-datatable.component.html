@@ -1,0 +1,27 @@
+<mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+    <mat-table mat-table [dataSource]="dataSource" matSort>
+        <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef" >
+            <mat-header-cell *matHeaderCellDef mat-sort-header> {{column.header}}</mat-header-cell>
+            <mat-cell *matCellDef="let row"><ng-container *ngIf="column.cell(row) !== 'undefined'">{{column.cell(row)}}</ng-container></mat-cell>
+        </ng-container>
+
+        <mat-header-row mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        <!-- Row shown when there is no matching data. -->
+        <mat-row class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+
+
+
+

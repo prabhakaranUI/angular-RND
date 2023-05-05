@@ -1,0 +1,25 @@
+<div class="topology">
+    <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px" class="h-100 w-100">
+        <div fxLayout="row wrap"  fxLayoutGap="15px grid" class="w-100">
+            <ng-container *ngFor="let item of res.data.topology.nodes">
+            <div [fxFlex]="item.fxWidth" fxLayoutAlign="center  center">
+               <ng-container *ngTemplateOutlet="serviceTemplate; context:item"></ng-container>
+            </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-template #serviceTemplate let-id="id" let-name="name" let-type="type">
+    <div fxLayout="column" fxLayoutAlign="center center">
+    <svg width="50" height="80" id={{id}}>
+        <g transform="translate(2,20)">
+            <image width="49" height="49" x="2" y="10" style="cursor: move;"
+                   xlink:href="data:image/png;base64,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"></image>
+            <image width="18" height="18" x="13" y="-7"
+                   xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACACAMAAAC7vZIpAAAAbFBMVEUAAAAaqvQWsf8Yr/kaq/QAvP8aqvQZq/Uaq/QaqvQaq/Qaq/QWrPcaq/Qaq/QYq/Uaq/QYq/Yaq/Qaq/QSrf8Yrfkaq/MSsv8ZrPUarPQaq/Qaq/Qaq/QaqvUZq/UZq/Yaq/UZrPQaq/Qbq/SPbccZAAAAI3RSTlMA9ggUnATPet3YweUdx5dLqFKKsQ0k7xEvcuBsuZBkOH9bQmAWbvoAAAQZSURBVHja7drplppAEAXg6maRHRVZXMdY7/+OOTmJgwahm0u3khO+/zO3FHqrlhaLxWJhhrxdsyINhAjSwr3ePJoVLy8EPxFFPp8a5T7mF+K9pDnwjjH3iI8z+BY3IQ8IN/RZ3pkVzh590C5ipWhHH5OErCFM6EOSmLXEH6rQCVhT4NAHyJS1pR6935pHcOntfvAoP+jNZMyjxJLea8UjreitasEjCYdMkZu1HwsR++uNpB5bHm0L5XU5ruBvwnXoFU/waMLD81reSvATsfKoa8OADZzXqlPuSGtoDuxao3mtMuAXghJ5wl0VmNdyDvzSwaFnXwz5gvJa0ucevuxMgogVlNfaak8RLkNcJK+VCO1ZNmJIhOS1XP0PHzAkAPJaUvAAIelBxZAKyGvlPCinBwwC8loZD8rogWCIAPK0X/zIxCMG8lohDwpNDBIgT/uxCcPTjDoPLxCfqIE85CvHlzogD3lp8c0CkAcOe2y7BeQhEye+YQXykKUH3/IDeejiLaFDE5TXcvS2P/ixE8jDN5C78Qf3HZyn7qf50kDrA85TdyQPjunmkToPP3bi7Tc8r1VHioM0uiC7cB7eivCAFjCQhzdz8Ca6Ok/dfjso2mH4NYQ67z+6yJn/VZjOZWLm0Wdtgllfx/4DF9rz/0nAP/CjivvPUtyHn6VIUoDvR/gvVeoeGwKpJ+hOXnfC7i45XVXmkGFONpAnXEexaLcUizgAyatTYEWwvAKl9fPGUS3cGasvZA1B+XRfoRR+kTFfWhUenKf7inm9g4+Hpy2rhSUZVga6Z+lEsJIr6Ylz2bonP2bmU06D8hP/UkXZxem7SFQc4N2xR7Jk5fOD8FhTj/oS8AN/ldADTyPZ1Wqz5PSgKbgjXTXU0awi7iiabgtO0UTKR3WlyoI77s/weGtKR0qnbG7HLKr4taIZVWFO2YjnK6+Cp1snIyrMlB37M31rQjaiyulbobwZUIT6nqJfBFlpLyqhot0sEr2WIN4sLBUFEA+60N2Z2U6FFx5EmpcBV1bAn7KPFygS5cfEXfRuXUjrUzZsnmi0Gnmk01beBWxBIOm3BC3wbGaAqP+/CxaYAFdz0OVdiRVY0B8pW5JqrCcklIvwja25KTvyYmAWug+RE1tzuo9C7uPTVvXHDlvkqL6Ebf8YP9Jve7ZoT78dBwZqxq81+kMElypWArf/1Cm87uuBU73o3tC5c1cMfbacrcqHdgzFfZwm+6jqm+avbNW1bzGpon1COtZs1Zqm8tkqn6aK2aqYpqrYqoqmYsuWApcClwKXAp/Nr0DBVgmaKmSrQprqxFadaKo9W7WnqRK2qqQhn9+xrmm6RLA1IiEDctaCH5nmO072ZMhGsAUiJ2OSzHx5WUIm1ZciFMaKC4tLTYvFYrHQ8RND8kt7lN8dvgAAAABJRU5ErkJggg=="></image>
+        </g>
+    </svg>
+    <div>{{name}}</div>
+    </div>
+</ng-template>

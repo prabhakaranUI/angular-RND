@@ -43,7 +43,7 @@ export class VizComponent implements OnInit, AfterViewInit {
 
   }
   ngAfterViewInit(): void {
-    wasmFolder('assets/@hpcc-js/wasm/dist/');
+    wasmFolder('assets/@hpcc-js/wasm/dist');
     this.generateGraph();
   }
 
@@ -70,19 +70,13 @@ export class VizComponent implements OnInit, AfterViewInit {
   }
 
   generateGraph(): void {
-    const t = d3.transition()
-        .delay(100)
-        .duration(1000)
-        .ease(d3.easeLinear);
     const option = {
-      fade: true,
-      useWorker: true,
-      zoom: true,
       engine: 'dot',
-      scale: 1,
+      scale: 0.8,
       id: 'visual',
+      zoom: false,
     };
-    this.graphInstance = graphviz('#graph', option).transition(t).attributer(this.attributer).renderDot(this.dotString);
+    this.graphInstance = graphviz('#graph', option).attributer(this.attributer).renderDot(this.dotString);
   }
 
   zoomIn(): void{

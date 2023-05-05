@@ -1,0 +1,35 @@
+<div class="fields-container">
+    <h2>Origin</h2>
+
+    <div
+            cdkDropList
+            [cdkDropListData]="origin"
+            [cdkDropListConnectedTo]="[destinationList, destinationList1]"
+            class="field-list">
+        <div class="field-box" *ngFor="let item of origin" cdkDrag>{{item.title}}</div>
+    </div>
+</div>
+
+<div class="fields-container">
+    <h2>Copy</h2>
+    <div
+            cdkDropList
+            #destinationList="cdkDropList"
+            [cdkDropListData]="destination"
+            class="field-list"
+            (cdkDropListDropped)="drop($event)">
+        <div class="field-box" *ngFor="let item of destination" cdkDrag>{{item.title}}</div>
+    </div>
+</div>
+
+<div class="fields-container">
+    <h2>Copy</h2>
+    <div
+            cdkDropList
+            #destinationList1="cdkDropList"
+            [cdkDropListData]="destination1"
+            class="field-list"
+            (cdkDropListDropped)="drop($event)">
+        <div class="field-box" *ngFor="let item of destination1" cdkDrag>{{item.title}}</div>
+    </div>
+</div>

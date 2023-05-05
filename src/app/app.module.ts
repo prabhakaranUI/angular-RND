@@ -22,10 +22,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import {MatSelectModule} from '@angular/material/select';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { NgrxComponent } from './ngrx/ngrx.component';
-import { CounterComponent } from './ngrx/counter/counter.component';
 import { StoreModule } from '@ngrx/store';
-import {counterReducer} from './ngrx/reducer';
 import { MxGraphComponent } from './mx-graph/mx-graph.component';
 import { VizComponent } from './viz/viz.component';
 import { SuburstComponent } from './suburst/suburst.component';
@@ -62,6 +59,14 @@ import { MetadataTextDisplayComponent } from './metadata-text-display/metadata-t
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { TableVirtualScrollModule } from 'ng-table-virtual-scroll';
 import {DatePipe} from '@angular/common';
+import {PopoverModule} from 'ngx-smart-popover';
+import { NgxOrgChartModule } from 'ngx-org-chart';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { NgxDCModule } from 'ngx-dynamic-compiler';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 import {
@@ -79,6 +84,25 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { JsonStructureComponent } from './json-structure/json-structure.component';
 import { TopologyComponent } from './topology/topology.component';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
+import { PopoverComponent } from './popover/popover.component';
+import { TreeChartComponent } from './tree-chart/tree-chart.component';
+import { JsonAccordionComponent } from './json-accordion/json-accordion.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { NestedTableComponent } from './nested-table/nested-table.component';
+import { ChangeDetetionComponent } from './change-detetion/change-detetion.component';
+import { ParentComponent } from './change-detetion/parent/parent.component';
+import { ChildComponent } from './change-detetion/parent/child/child.component';
+import { DynamicDatatableComponent } from './dynamic-datatable/dynamic-datatable.component';
+import { D3Component } from './d3/d3.component';
+import { XsltComponent } from './xslt/xslt.component';
+import { MultidragComponent } from './multidrag/multidrag.component';
+import { VideoplayerComponent } from './videoplayer/videoplayer.component';
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+import { ImageBoundingBoxComponent } from './image-bounding-box/image-bounding-box.component';
+import { XformComponent } from './xform/xform.component';
 @NgModule({
 
   declarations: [
@@ -87,8 +111,6 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
     ColorShadesComponent,
     SqlEditorComponent,
     ExportHtmlComponent,
-    NgrxComponent,
-    CounterComponent,
     MxGraphComponent,
     VizComponent,
     SuburstComponent,
@@ -102,13 +124,13 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
     ContextmenuComponent,
     DocViewerComponent,
     CustomPresentationComponent,
-    SafeHtmlPipe, HtmlDirective, MetadataTextDisplayComponent, PivotTableComponent, TableVirtualScrollComponent, JsonStructureComponent, TopologyComponent
+    SafeHtmlPipe, HtmlDirective, MetadataTextDisplayComponent, PivotTableComponent, TableVirtualScrollComponent, JsonStructureComponent, TopologyComponent, PopoverComponent, TreeChartComponent, JsonAccordionComponent, NestedTableComponent, ChangeDetetionComponent, ParentComponent, ChildComponent, DynamicDatatableComponent, XsltComponent, MultidragComponent, VideoplayerComponent, ImageBoundingBoxComponent, XformComponent
 
   ],
   imports: [
     BrowserModule,
+    NgxDCModule,
     FlexLayoutModule,
-    StoreModule.forRoot({count: counterReducer}),
     IconPickerModule,
     CanvasDomModule,
     NgxIconPickrModule,
@@ -126,7 +148,7 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
     NgSelectModule,
     MatSelectModule,
     NinjaSplitterModule,
-
+    PopoverModule,
     MatDialogModule,
     MatCardModule,
     MatListModule,
@@ -135,6 +157,15 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
     NgxDocViewerModule,
     ContextMenuModule.forRoot(),
     NgxDomarrowModule,
+    MatExpansionModule,
+    MatTabsModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
+    MatMenuModule,
+
+
     // MonacoEditorModule.forRoot(),
     NgxCanvasModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', {
@@ -150,7 +181,10 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
     MatTableModule,
     TableVirtualScrollModule,
     MatProgressBarModule,
-    NgxJsonViewerModule
+    NgxJsonViewerModule,
+    NgxOrgChartModule,
+    MatCheckboxModule,
+    MatTooltipModule
 
   ],
   providers: [

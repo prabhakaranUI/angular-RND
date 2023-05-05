@@ -1,0 +1,48 @@
+<mat-card fxLayout="row">
+<!--    <div fxFlex="70">-->
+<!--&lt;!&ndash;        <canvas  #myCanvas  style="border:1px solid #d3d3d3;">&ndash;&gt;-->
+<!--&lt;!&ndash;        Your browser does not support the HTML5 canvas tag.&ndash;&gt;-->
+<!--&lt;!&ndash;    </canvas>&ndash;&gt;-->
+<!--    </div>-->
+    <div fxFlex="100">
+        <div id="svgImage" style="position: relative">
+            <span [popover]="myPopover" (click)="selectObject(list)" [popoverOnHover]="false" *ngFor="let list of rects" style="position: absolute;"
+                  [style.width.px]="list.w"
+                  [style.left.px]="list.x"
+                  [style.top.px]="list.y"
+                  [style.height.px]="list.h">
+            </span>
+
+            <popover-content #myPopover
+                             placement="bottom"
+                             [animation]="true"
+                             [closeOnClickOutside]="true" >
+                <form>
+                    <mat-form-field class="w-100">
+                        <mat-label>Favorite food</mat-label>
+                        <input matInput placeholder="Ex. Pizza" value="">
+                    </mat-form-field>
+
+                    <mat-form-field class="w-100">
+                        <mat-label>Leave a comment</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                    </mat-form-field>
+                </form>
+            </popover-content>
+
+        </div>
+    </div>
+</mat-card>
+
+
+
+
+
+
+<!--<canvas id="canvas" width="300" height="300"></canvas>-->
+
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+</mat-menu>

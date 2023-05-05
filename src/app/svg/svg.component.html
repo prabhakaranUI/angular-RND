@@ -1,0 +1,21 @@
+<section>
+<section fxLayout="row" fxLayoutGap="15px" [formGroup]="squareForm">
+    <mat-form-field fxFlex="25"   (input)="generateCube(shapes.THOUSANDS)">
+        <mat-label>Thousands</mat-label>
+        <input matInput type="number" formControlName="thousands">
+    </mat-form-field>
+    <mat-form-field fxFlex="25"  (input)="generateCube(shapes.HUNDREDS)">
+        <mat-label>Hundreds</mat-label>
+        <input matInput type="number"  formControlName="hundreds">
+    </mat-form-field>
+    <mat-form-field fxFlex="25"   (input)="generateCube(shapes.TENS)">
+        <mat-label>Tens</mat-label>
+        <input matInput type="number" formControlName="tens">
+    </mat-form-field>
+    <mat-form-field fxFlex="25"   (input)="generateCube(shapes.ONEC)">
+        <mat-label>Once</mat-label>
+        <input matInput type="number" formControlName="once">
+    </mat-form-field>
+</section>
+<div id="svgCube"></div>
+</section>
