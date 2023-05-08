@@ -51,25 +51,22 @@ export class XformComponent implements OnInit, AfterViewInit {
     const script = document.createElement('script');
     script.id = 'cfs';
     script.src = '../../assets/js/xsltforms.js';
-    this.isScriptEnable = true;
+    this.isScriptEnable = false;
     body.appendChild(script);
   }
 
-
   viewxform(): void {
-    if (this.isScriptEnable) {
-      this.loadScript();
-
-    }
-
-    this.htmlView = this.domSanitizer.bypassSecurityTrustHtml(this.queryText);
+      this.textChange();
+      this.htmlView = this.domSanitizer.bypassSecurityTrustHtml(this.queryText);
   }
 
   textChange(): void {
-    // const body = document.body as HTMLDivElement;
-    // const element = document.querySelector('#cfs');
-    // // @ts-ignore
-    // body.removeChild(element);
-    //this.htmlView = '';
+    if (!this.isScriptEnable) {
+      const body = document.body as HTMLDivElement;
+      const element = document.querySelector('#cfs');
+      // @ts-ignore
+      body.removeChild(element);
+    }
+    this.loadScript();
   }
 }

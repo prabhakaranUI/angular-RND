@@ -22,7 +22,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 "use strict";
 if (typeof Fleur === "undefined") {
-  console.info('Fleur 1.0 (15), XPath 1.0 Parser, copyright (C) 2023 agenceXML - Alain Couthures, contact at fleur@agencexml.com');
+  //console.info('Fleur 1.0 (15), XPath 1.0 Parser, copyright (C) 2023 agenceXML - Alain Couthures, contact at fleur@agencexml.com');
   (function(Fleur) {
   Fleur.Node = function() {};
   Fleur.Node.ELEMENT_NODE = 1;
