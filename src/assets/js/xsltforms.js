@@ -17555,7 +17555,7 @@ if (!Object.entries) {
   };
 }
 if (typeof xsltforms_d0 === "undefined") {
-  (function () {
+  var viewInit = function () {
     var initelts = document.getElementsByTagName("script");
     var elts = [];
     var i, l;
@@ -17683,5 +17683,5 @@ if (typeof xsltforms_d0 === "undefined") {
     } else {
       XsltForms_browser.addLoadListener(xsltforms_init);
     }
-  })();
+  };
 }

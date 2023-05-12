@@ -85,6 +85,7 @@
               "./node_modules/ace-builds/src-min/ext-language_tools.js",
               "./node_modules/ace-builds/src-min/ext-searchbox.js",
               "src/assets/js/myScript.js",
+              "src/assets/js/xsltforms.js",
               "src/assets/jsonTreeViewerjs/json-viewer.js",
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/jquery-ui-dist/jquery-ui.js",
