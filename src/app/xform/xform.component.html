@@ -5,8 +5,17 @@
       [options]="options"
       [readOnly]="false"
       style="min-height: 400px; width:100%; overflow: auto;"></div>
+
 <button mat-raised-button color="primary" style="margin-top: 15px" (click)="viewxform()">XSLTFrom Preview</button>
 
 <mat-card *ngIf="htmlView" style="margin-top: 15px">
 <div  [innerHTML]="htmlView"></div>
 </mat-card>
+<!--<div>-->
+<!--    <xforms-submit ev-event="DOMActivate" onclick="hello()"  xf-submission="submit">-->
+<!--        <xforms-label>Submit</xforms-label>-->
+<!--</xforms-submit></div>-->
+<br>
+<button mat-raised-button color="primary" style="margin-top: 15px" (click)="getData()">Submit</button>
+
+<h1 *ngIf="payload.length">{{payload | json}}</h1>

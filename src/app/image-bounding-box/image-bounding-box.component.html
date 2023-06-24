@@ -5,7 +5,7 @@
 <!--&lt;!&ndash;    </canvas>&ndash;&gt;-->
 <!--    </div>-->
     <div fxFlex="100">
-        <div id="svgImage" style="position: relative">
+        <div id="svgImage" style="position: relative;">
             <span [popover]="myPopover" (click)="selectObject(list)" [popoverOnHover]="false" *ngFor="let list of rects" style="position: absolute;"
                   [style.width.px]="list.w"
                   [style.left.px]="list.x"
@@ -35,7 +35,8 @@
 </mat-card>
 
 
-
+<button (click)="zoom('in')">in</button>
+<button (click)="zoom('out')">out</button>
 
 
 

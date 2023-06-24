@@ -103,6 +103,8 @@ import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
 import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 import { ImageBoundingBoxComponent } from './image-bounding-box/image-bounding-box.component';
 import { XformComponent } from './xform/xform.component';
+import { EtlCanvaseComponent } from './etl-canvase/etl-canvase.component';
+import { SvgPathComponent } from './etl-canvase/svg-path/svg-path.component';
 @NgModule({
 
   declarations: [
@@ -124,7 +126,7 @@ import { XformComponent } from './xform/xform.component';
     ContextmenuComponent,
     DocViewerComponent,
     CustomPresentationComponent,
-    SafeHtmlPipe, HtmlDirective, MetadataTextDisplayComponent, PivotTableComponent, TableVirtualScrollComponent, JsonStructureComponent, TopologyComponent, PopoverComponent, TreeChartComponent, JsonAccordionComponent, NestedTableComponent, ChangeDetetionComponent, ParentComponent, ChildComponent, DynamicDatatableComponent, XsltComponent, MultidragComponent, VideoplayerComponent, ImageBoundingBoxComponent, XformComponent
+    SafeHtmlPipe, HtmlDirective, MetadataTextDisplayComponent, PivotTableComponent, TableVirtualScrollComponent, JsonStructureComponent, TopologyComponent, PopoverComponent, TreeChartComponent, JsonAccordionComponent, NestedTableComponent, ChangeDetetionComponent, ParentComponent, ChildComponent, DynamicDatatableComponent, XsltComponent, MultidragComponent, VideoplayerComponent, ImageBoundingBoxComponent, XformComponent, EtlCanvaseComponent, SvgPathComponent
 
   ],
   imports: [

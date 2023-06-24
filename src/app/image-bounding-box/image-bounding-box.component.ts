@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import {Renderer2} from '@angular/core';
+import { fabric } from 'fabric';
 @Component({
   selector: 'app-image-bounding-box',
   templateUrl: './image-bounding-box.component.html',
@@ -28,7 +29,7 @@ export class ImageBoundingBoxComponent implements OnInit, AfterViewInit {
       });
     });
     this.rects = [
-      {x: 380, y: 50, w: 100, h: 120, id: 1},
+      {x: 1267, y: 776, w: 252, h: 288, id: 1},
       {x: 140, y: 60, w: 70, h: 130, id: 2},
       {x: 10, y: 50, w: 70, h: 60, id: 3},
     ];
@@ -40,12 +41,12 @@ export class ImageBoundingBoxComponent implements OnInit, AfterViewInit {
 
   createBoundingBox(): void {
     this.img = new Image();
-    this.img.src = './assets/FBP_Declaration_P3IND0127.jpeg';
+    this.img.src = './assets/download.jpeg';
     this.img.onload = () => {
       this.imgHeight = this.img.height;
       this.imgWith = this.img.width;
       this.generateSvg();
-      //this.showImage();
+      // this.showImage();
     };
   }
 
@@ -63,14 +64,14 @@ export class ImageBoundingBoxComponent implements OnInit, AfterViewInit {
     this.canvasElement.addEventListener('click', (e) => {
       parent.index = 0;
       parent.box = {};
-      //parent.context.clearRect(50, 60, 100, 150);
+      // parent.context.clearRect(50, 60, 100, 150);
       // tslint:disable-next-line:no-conditional-assignment
       while (parent.box = parent.rects[parent.index++]) {
         parent.context.beginPath();
         parent.context.rect(parent.box.x, parent.box.y, parent.box.w, parent.box.h);
         parent.context.strokeStyle = parent.context.isPointInPath(e.offsetX, e.offsetY) ? 'blue' : 'white';
         parent.context.stroke();
-        if(parent.context.isPointInPath(e.offsetX, e.offsetY)){
+        if (parent.context.isPointInPath(e.offsetX, e.offsetY)){
           console.log(parent.box);
         }
       }
@@ -105,11 +106,13 @@ export class ImageBoundingBoxComponent implements OnInit, AfterViewInit {
 
   generateSvg(): void {
     this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    this.svg.setAttribute('id', 'svgImg');
     this.svg.setAttribute('width', this.imgWith);
     this.svg.setAttribute('height', this.imgHeight);
+    this.svg.setAttribute('transform', 'scale(0.3)');
     this.svg.setAttributeNS('http://www.w3.org/2000/xmlns/', 'xmlns:xlink', 'http://www.w3.org/1999/xlink');
     const loadImg = document.createElementNS('http://www.w3.org/2000/svg', 'image');
-    loadImg.setAttribute('href', './assets/FBP_Declaration_P3IND0127.jpeg');
+    loadImg.setAttribute('href', './assets/download.jpeg');
     this.svg.appendChild(loadImg);
     this.setBoundingBox();
 
@@ -143,4 +146,39 @@ export class ImageBoundingBoxComponent implements OnInit, AfterViewInit {
     // @ts-ignore
     document.getElementById(list.id).setAttribute('stroke', 'red');
   }
+
+
+  zoom(direction): void{
+    const svg = document.getElementById('svgImg');
+    console.log(svg);
+    const { scale, x, y } = this.getTransformParameters(svg);
+    let dScale = 0.1;
+    if (direction === 'out') { dScale *= -1; }
+    if (scale === 0.1 && direction === 'out') { dScale = 0; }
+    // @ts-ignore
+    svg.style.transform = this.getTransformString(scale + dScale, x, y);
+  }
+
+
+getTransformParameters(element): any {
+  const transform = element.style.transform;
+    let scale = 1,
+        x = 0,
+        y = 0;
+    if (transform.includes('scale')) {
+      scale = parseFloat(transform.slice(transform.indexOf('scale') + 6));
+    }
+    if (transform.includes('translateX')) {
+      x = parseInt(transform.slice(transform.indexOf('translateX') + 11));
+    }
+    if (transform.includes('translateY')) {
+      y = parseInt(transform.slice(transform.indexOf('translateY') + 11));
+    }
+    return { scale, x, y };
+  }
+
+  getTransformString(scale, x, y): any {
+   return  "scale(" + scale + ") " + "translateX(" + x + "%) translateY(" + y + "%)";
+  }
+
 }

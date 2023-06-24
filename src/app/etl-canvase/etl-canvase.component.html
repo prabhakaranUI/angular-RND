@@ -1,0 +1,27 @@
+<svg
+        width="500"
+        height="500"
+        (mousemove)="handleMouseMove($event)"
+        (mouseup)="handleMouseUp()"
+>
+    <rect
+            *ngIf="showRectangle"
+            [attr.x]="rectX"
+            [attr.y]="rectY"
+            [attr.width]="rectWidth"
+            [attr.height]="rectHeight"
+            fill="blue"
+            (mousedown)="handleMouseDown($event)"
+            style="cursor: move;"
+    ></rect>
+    <rect
+            *ngIf="showResizeHandle"
+            [attr.x]="rectX + rectWidth - 10"
+            [attr.y]="rectY + rectHeight - 10"
+            width="10"
+            height="10"
+            fill="red"
+            (mousedown)="handleResizeDown($event)"
+            style="cursor: nwse-resize;"
+    ></rect>
+</svg>
