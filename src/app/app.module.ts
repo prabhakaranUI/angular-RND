@@ -105,6 +105,11 @@ import { ImageBoundingBoxComponent } from './image-bounding-box/image-bounding-b
 import { XformComponent } from './xform/xform.component';
 import { EtlCanvaseComponent } from './etl-canvase/etl-canvase.component';
 import { SvgPathComponent } from './etl-canvase/svg-path/svg-path.component';
+import { VennComponent } from './venn/venn.component';
+import { AceComponent } from './ace/ace.component';
+import { ImageToWebpComponent } from './image-to-webp/image-to-webp.component';
+import { RandomShadesComponent } from './random-shades/random-shades.component';
+import { SvgjsComponent } from './svgjs/svgjs.component';
 @NgModule({
 
   declarations: [
@@ -126,7 +131,7 @@ import { SvgPathComponent } from './etl-canvase/svg-path/svg-path.component';
     ContextmenuComponent,
     DocViewerComponent,
     CustomPresentationComponent,
-    SafeHtmlPipe, HtmlDirective, MetadataTextDisplayComponent, PivotTableComponent, TableVirtualScrollComponent, JsonStructureComponent, TopologyComponent, PopoverComponent, TreeChartComponent, JsonAccordionComponent, NestedTableComponent, ChangeDetetionComponent, ParentComponent, ChildComponent, DynamicDatatableComponent, XsltComponent, MultidragComponent, VideoplayerComponent, ImageBoundingBoxComponent, XformComponent, EtlCanvaseComponent, SvgPathComponent
+    SafeHtmlPipe, HtmlDirective, MetadataTextDisplayComponent, PivotTableComponent, TableVirtualScrollComponent, JsonStructureComponent, TopologyComponent, PopoverComponent, TreeChartComponent, JsonAccordionComponent, NestedTableComponent, ChangeDetetionComponent, ParentComponent, ChildComponent, DynamicDatatableComponent, XsltComponent, MultidragComponent, VideoplayerComponent, ImageBoundingBoxComponent, XformComponent, EtlCanvaseComponent, SvgPathComponent, VennComponent, AceComponent, ImageToWebpComponent, RandomShadesComponent, SvgjsComponent
 
   ],
   imports: [

@@ -1,0 +1,23 @@
+.line {
+  position: relative;
+  height: 2px;
+  background-color: black;
+  cursor: move;
+}
+
+.handle {
+  position: absolute;
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: blue;
+  cursor: ew-resize;
+}
+
+.start-handle {
+  left: -5px;
+}
+
+.end-handle {
+  right: -5px;
+}
