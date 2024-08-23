@@ -66,6 +66,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NgxDCModule } from 'ngx-dynamic-compiler';
 import {MatMenuModule} from '@angular/material/menu';
+import { DndModule } from 'ngx-drag-drop';
 
 
 
@@ -110,6 +111,10 @@ import { AceComponent } from './ace/ace.component';
 import { ImageToWebpComponent } from './image-to-webp/image-to-webp.component';
 import { RandomShadesComponent } from './random-shades/random-shades.component';
 import { SvgjsComponent } from './svgjs/svgjs.component';
+import { FabricComponent } from './fabric/fabric.component';
+import { RxjsOprtatorsComponent } from './rxjs-oprtators/rxjs-oprtators.component';
+import { PdfBuilderComponent } from './pdf-builder/pdf-builder.component';
+import { ImagePropertiesComponent } from './pdf-builder/widgets/image-properties/image-properties.component';
 @NgModule({
 
   declarations: [
@@ -131,7 +136,7 @@ import { SvgjsComponent } from './svgjs/svgjs.component';
     ContextmenuComponent,
     DocViewerComponent,
     CustomPresentationComponent,
-    SafeHtmlPipe, HtmlDirective, MetadataTextDisplayComponent, PivotTableComponent, TableVirtualScrollComponent, JsonStructureComponent, TopologyComponent, PopoverComponent, TreeChartComponent, JsonAccordionComponent, NestedTableComponent, ChangeDetetionComponent, ParentComponent, ChildComponent, DynamicDatatableComponent, XsltComponent, MultidragComponent, VideoplayerComponent, ImageBoundingBoxComponent, XformComponent, EtlCanvaseComponent, SvgPathComponent, VennComponent, AceComponent, ImageToWebpComponent, RandomShadesComponent, SvgjsComponent
+    SafeHtmlPipe, HtmlDirective, MetadataTextDisplayComponent, PivotTableComponent, TableVirtualScrollComponent, JsonStructureComponent, TopologyComponent, PopoverComponent, TreeChartComponent, JsonAccordionComponent, NestedTableComponent, ChangeDetetionComponent, ParentComponent, ChildComponent, DynamicDatatableComponent, XsltComponent, MultidragComponent, VideoplayerComponent, ImageBoundingBoxComponent, XformComponent, EtlCanvaseComponent, SvgPathComponent, VennComponent, AceComponent, ImageToWebpComponent, RandomShadesComponent, SvgjsComponent, FabricComponent, RxjsOprtatorsComponent, PdfBuilderComponent, ImagePropertiesComponent
 
   ],
   imports: [
@@ -171,6 +176,7 @@ import { SvgjsComponent } from './svgjs/svgjs.component';
     VgOverlayPlayModule,
     VgBufferingModule,
     MatMenuModule,
+    DndModule,
 
 
     // MonacoEditorModule.forRoot(),

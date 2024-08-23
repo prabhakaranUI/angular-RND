@@ -1,0 +1,15 @@
+.boundary{
+   border: 2px solid #ccc;
+   padding: 12px;
+   height: calc(100vh - 12px);
+   border-radius: 3px;
+   .widget-properties{
+    width: fit-content;
+}
+}
+.widgets{
+    border: 2px solid #eee;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 3px;
+}

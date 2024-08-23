@@ -1,0 +1,38 @@
+<div fxLayout="column" fxLayoutGap="10px">
+<div fxLayoutAlign="end center">
+ <button mat-raised-button color="primary" (click)="exportAsPDF()">Export PDF</button>
+</div>
+<div fxLayout="row" fxLayoutAlign="space-between stretch">
+    <aside fxFlex="19" fxLayout="row wrap" fxLayoutAlign="space-between start" class="boundary">
+
+        <div  
+        *ngFor="let widget of widgets.templates"
+        [dndType]="widget.type"
+        [dndDraggable]="{item: widget}"
+        fxFlex="22">
+
+            <figure class="widgets" fxLayout="column" fxLayoutAlign="center center">
+                <mat-icon> {{widget.icon}}</mat-icon>
+                <figcaption> {{widget.type}}</figcaption>
+            </figure>
+        </div>
+       
+    </aside>
+    <section fxFlex="60" class="boundary" id="designer"   
+    dndDropzone
+    (dndDragover)="onDragover($event)"
+    (dndDrop)="onDrop($event)">
+    <div *ngFor="let list of container">
+       <div cdkDrag cdkDragBoundary="#designer" (click)="selectedWidget(list)" class="widget-properties">
+        <mat-icon >{{list.data.item?.icon}}</mat-icon>
+       </div>
+    </div>
+    </section>
+    <aside fxFlex="19" class="boundary">
+        <mat-toolbar>
+            <span>Properties</span>
+          </mat-toolbar>
+          <app-image-properties (imageUrl)="onDataChange($event)"></app-image-properties>
+    </aside>
+</div>
+</div>
