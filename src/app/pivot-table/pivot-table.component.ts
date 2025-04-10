@@ -5,6 +5,7 @@ import 'pivottable/dist/pivot.min.css';
 
 
 
+
 declare var jQuery: any;
 declare var $: any;
 
@@ -47,7 +48,11 @@ export class PivotTableComponent implements OnInit, AfterViewInit  {
     while (targetElement.firstChild){
       targetElement.removeChild(targetElement.firstChild);
     }
-      this.renderers = jQuery.extend(jQuery.pivotUtilities.renderers, jQuery.pivotUtilities.c3_renderers);
+      this.renderers = jQuery.extend(
+        jQuery.pivotUtilities.renderers, 
+       
+        jQuery.pivotUtilities.plotly_renderers
+      );
 
       this.derivers = $.pivotUtilities.derivers;
 

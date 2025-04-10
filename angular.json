@@ -91,7 +91,8 @@
               "./node_modules/pivottable/dist/pivot.min.js",
               "./node_modules/pivottable/dist/gchart_renderers.min.js",
               "./node_modules/pivottable/dist/c3_renderers.min.js",
-              "./node_modules/pivottable/dist/d3_renderers.min.js"
+              "./node_modules/pivottable/dist/d3_renderers.min.js",
+                "./node_modules/pivottable/dist/plotly_renderers.js"
             ],
             "vendorChunk": true,
             "extractLicenses": false,

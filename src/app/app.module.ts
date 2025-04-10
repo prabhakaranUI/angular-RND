@@ -48,6 +48,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import { ContextmenuComponent } from './query-builder/contextmenu/contextmenu.component';
 import {ContextMenuModule} from 'ngx-contextmenu';
 // import { MonacoEditorModule } from 'ngx-monaco-editor';
+
 import { NgxDomarrowModule } from 'ngx-domarrow';
 import {NgxDocViewerModule} from 'ngx-doc-viewer';
 import { DocViewerComponent } from './doc-viewer/doc-viewer.component';
@@ -67,6 +68,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NgxDCModule } from 'ngx-dynamic-compiler';
 import {MatMenuModule} from '@angular/material/menu';
 import { DndModule } from 'ngx-drag-drop';
+import { ToastrModule } from 'ngx-toastr';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 
 
 
@@ -115,6 +119,9 @@ import { FabricComponent } from './fabric/fabric.component';
 import { RxjsOprtatorsComponent } from './rxjs-oprtators/rxjs-oprtators.component';
 import { PdfBuilderComponent } from './pdf-builder/pdf-builder.component';
 import { ImagePropertiesComponent } from './pdf-builder/widgets/image-properties/image-properties.component';
+import { CustomToastrComponent } from './custom-toastr/custom-toastr.component';
+import { TableTabindexComponent } from './table-tabindex/table-tabindex.component';
+import { CkeditorComponent } from './ckeditor/ckeditor.component';
 @NgModule({
 
   declarations: [
@@ -136,7 +143,8 @@ import { ImagePropertiesComponent } from './pdf-builder/widgets/image-properties
     ContextmenuComponent,
     DocViewerComponent,
     CustomPresentationComponent,
-    SafeHtmlPipe, HtmlDirective, MetadataTextDisplayComponent, PivotTableComponent, TableVirtualScrollComponent, JsonStructureComponent, TopologyComponent, PopoverComponent, TreeChartComponent, JsonAccordionComponent, NestedTableComponent, ChangeDetetionComponent, ParentComponent, ChildComponent, DynamicDatatableComponent, XsltComponent, MultidragComponent, VideoplayerComponent, ImageBoundingBoxComponent, XformComponent, EtlCanvaseComponent, SvgPathComponent, VennComponent, AceComponent, ImageToWebpComponent, RandomShadesComponent, SvgjsComponent, FabricComponent, RxjsOprtatorsComponent, PdfBuilderComponent, ImagePropertiesComponent
+    CustomToastrComponent,
+    SafeHtmlPipe, HtmlDirective, MetadataTextDisplayComponent, PivotTableComponent, TableVirtualScrollComponent, JsonStructureComponent, TopologyComponent, PopoverComponent, TreeChartComponent, JsonAccordionComponent, NestedTableComponent, ChangeDetetionComponent, ParentComponent, ChildComponent, DynamicDatatableComponent, XsltComponent, MultidragComponent, VideoplayerComponent, ImageBoundingBoxComponent, XformComponent, EtlCanvaseComponent, SvgPathComponent, VennComponent, AceComponent, ImageToWebpComponent, RandomShadesComponent, SvgjsComponent, FabricComponent, RxjsOprtatorsComponent, PdfBuilderComponent, ImagePropertiesComponent, TableTabindexComponent, CkeditorComponent
 
   ],
   imports: [
@@ -177,6 +185,7 @@ import { ImagePropertiesComponent } from './pdf-builder/widgets/image-properties
     VgBufferingModule,
     MatMenuModule,
     DndModule,
+    CKEditorModule,
 
 
     // MonacoEditorModule.forRoot(),
@@ -197,7 +206,8 @@ import { ImagePropertiesComponent } from './pdf-builder/widgets/image-properties
     NgxJsonViewerModule,
     NgxOrgChartModule,
     MatCheckboxModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [
